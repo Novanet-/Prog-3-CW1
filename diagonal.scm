@@ -1,2 +1,13 @@
 (define diagonal
-  (car '(1 2))) 
+  )
+
+(define matrix?
+  (lambda (m)
+    (list-equal? (map length m))))
+
+(define list-equal?
+  (lambda (l)
+    (apply = l)))
+
+
+
