@@ -1,5 +1,3 @@
-#lang scheme
-
 (define diagonal
   (lambda (m)
     (if (matrix? m)
