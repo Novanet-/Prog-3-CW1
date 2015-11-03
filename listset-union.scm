@@ -7,11 +7,7 @@
           ((listset-null? set2) set1)
           ((listset-equal? set1 set2) set1)
           (else
-               (compute-union set1 set2)
-          )
-    )
-  )
-)
+               (compute-union set1 set2)))))
 
 ;;Base case: If second set is null, return first set
 ;;If the current element from the second set is already in the first set, then move onto the next element without adding the
@@ -21,7 +17,6 @@
 (define compute-union
   (lambda (set1 set2)
     (cond ((listset-null? set2) set1)
-          (else (compute-union (listset-add (listset-first set2) set1) (listset-rest set2)))
-    )
-  )
-)
+          ((member (listset-first set2) set1) (compute-union set1 (listset-rest set2)))
+          (else (compute-union (listset-add (listset-first set2) set1) (listset-rest set2))))))
+
